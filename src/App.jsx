@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { EmptyStateMessage } from "./components/EmptyState";
-import { TodoItem } from "./components/TodoItem";
+import { TodoItem } from "./components/TodoList";
 import { TodoSubmit } from "./components/TodoForm";
 import { FilterTodos } from "./components/FilterBar";
 
