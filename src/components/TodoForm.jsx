@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState,useEffect, useRef } from "react";
 import { EmptyInputError } from "./InputError";
 
 export const TodoSubmit = ({ addingTodo }) => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
+  const inputRef=useRef()
+  useEffect(()=>{inputRef.current.focus()},[])
   let handleSubmit = () => {
-    if (!inputValue) {
+    if (inputValue.trim()==="") {
+      setInputValue('')
       setError(true);
       return;
     } else {
@@ -18,7 +21,7 @@ export const TodoSubmit = ({ addingTodo }) => {
     <>
     <section>
       <input
-        required
+        ref={inputRef}
         value={inputValue}
         type="text"
         placeholder="Enter Here"
